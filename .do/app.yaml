@@ -3,7 +3,7 @@ services:
   - name: web
     source_dir: /
     github:
-      repo: yourusername/dhr-deep-house-radio
+      repo: dhrdeep/dhraug
       branch: main
     run_command: node dist/index.js
     build_command: npm run build
