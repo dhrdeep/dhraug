@@ -4,7 +4,6 @@ import { config } from 'dotenv';
 import { drizzle } from 'drizzle-orm/neon-serverless';
 import { Pool } from '@neondatabase/serverless';
 import { sql } from 'drizzle-orm';
-import * as schema from '../shared/schema.js';
 
 // Load environment variables
 config();
@@ -44,10 +43,9 @@ async function testDatabaseConnection() {
   
   try {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-    const db = drizzle({ client: pool, schema });
     
     // Test a simple query
-    await db.execute(sql`SELECT 1`);
+    await pool.query('SELECT 1');
     console.log('✅ Database connection successful');
     
     await pool.end();
@@ -93,7 +91,7 @@ async function main() {
     
     console.log('\n🎉 All validations passed! Your application is ready for deployment.');
     console.log('\nNext steps:');
-    console.log('1. Choose your hosting platform (Railway, Render, Vercel, etc.)');
+    console.log('1. Choose your hosting platform (DigitalOcean, Railway, Render, etc.)');
     console.log('2. Set up your environment variables on the platform');
     console.log('3. Deploy your application');
     console.log('4. Update your Patreon OAuth redirect URI to match your new domain');
