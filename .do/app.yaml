@@ -1,0 +1,38 @@
+name: dhr-deep-house-radio
+services:
+  - name: web
+    source_dir: /
+    github:
+      repo: yourusername/dhr-deep-house-radio
+      branch: main
+    run_command: node dist/index.js
+    build_command: npm run build
+    environment_slug: node-js
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    routes:
+      - path: /
+    envs:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        value: ${DATABASE_URL}
+        type: SECRET
+      - key: PATREON_CLIENT_ID
+        value: ${PATREON_CLIENT_ID}
+        type: SECRET
+      - key: PATREON_CLIENT_SECRET
+        value: ${PATREON_CLIENT_SECRET}
+        type: SECRET
+      - key: VITE_PATREON_CLIENT_ID
+        value: ${VITE_PATREON_CLIENT_ID}
+        type: SECRET
+      - key: VITE_PATREON_CLIENT_SECRET
+        value: ${VITE_PATREON_CLIENT_SECRET}
+        type: SECRET
+      - key: VITE_PATREON_REDIRECT_URI
+        value: ${VITE_PATREON_REDIRECT_URI}
+        type: SECRET
+      - key: SESSION_SECRET
+        value: ${SESSION_SECRET}
+        type: SECRET

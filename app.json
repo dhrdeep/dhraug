@@ -1,0 +1,52 @@
+{
+  "name": "dhr-deep-house-radio",
+  "description": "Deep House Radio streaming platform with Patreon integration",
+  "repository": "https://github.com/yourusername/dhr-deep-house-radio",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["node", "express", "react", "typescript", "music", "streaming"],
+  "env": {
+    "NODE_ENV": {
+      "description": "Environment setting",
+      "value": "production"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL database URL",
+      "required": true
+    },
+    "PATREON_CLIENT_ID": {
+      "description": "Patreon OAuth client ID",
+      "required": true
+    },
+    "PATREON_CLIENT_SECRET": {
+      "description": "Patreon OAuth client secret",
+      "required": true
+    },
+    "VITE_PATREON_CLIENT_ID": {
+      "description": "Patreon OAuth client ID for frontend",
+      "required": true
+    },
+    "VITE_PATREON_CLIENT_SECRET": {
+      "description": "Patreon OAuth client secret for frontend",
+      "required": true
+    },
+    "VITE_PATREON_REDIRECT_URI": {
+      "description": "Patreon OAuth redirect URI",
+      "required": true
+    },
+    "SESSION_SECRET": {
+      "description": "Session secret for Express sessions",
+      "required": true,
+      "generator": "secret"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:mini"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
